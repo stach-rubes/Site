@@ -1,0 +1,79 @@
+function createLoginPage() {
+  // Create a form with the necessary fields, such as username, password, and email address.
+  const form = document.createElement("form");
+  form.setAttribute("action", "/login");
+  form.setAttribute("method", "post");
+  // Add a username field to the form.
+  const usernameField = document.createElement("input");
+  usernameField.setAttribute("type", "text");
+  usernameField.setAttribute("name", "username");
+  form.appendChild(usernameField);
+  // Add a password field to the form.
+  const passwordField = document.createElement("input");
+  passwordField.setAttribute("type", "password");
+  passwordField.setAttribute("name", "password");
+  form.appendChild(passwordField);
+  // Add an email field to the form.
+  const emailField = document.createElement("input");
+  emailField.setAttribute("type", "email");
+  emailField.setAttribute("name", "email");
+  form.appendChild(emailField);
+  // Add a submit button to the form.
+  const submitButton = document.createElement("input");
+  submitButton.setAttribute("type", "submit");
+  submitButton.setAttribute("value", "Login");
+  form.appendChild(submitButton);
+  // Append the form to the body of the document.
+  document.body.appendChild(form);
+}
+
+//Forgot PW
+function createForgotPasswordButton() {
+  // Create a button with the text "Forgot Password?"
+  const button = document.createElement("button");
+  button.innerHTML = "Forgot Password?";
+  // Add an event listener to the button that will open a new window when clicked.
+  button.addEventListener("click", function() {
+    window.open("/forgot-password");
+  });
+  // Append the button to the body of the document.
+  document.body.appendChild(button);
+}
+
+//New User
+function createNewUsername() {
+  // Generate a random string of characters.
+  const username = Math.random().toString(36).substr(2, 10);
+  // Check if the username is already taken.
+  const isUsernameTaken = axios.get(`/api/usernames/${username}`).then(response => response.data);
+  // If the username is not taken, return the username.
+  if (!isUsernameTaken) {
+    return username;
+  }
+  // Otherwise, generate a new username and try again.
+  else {
+    return createNewUsername();
+  }
+}
+
+//Forgot User Name
+function createForgotUsernamePage() {
+  // Create a form with a text field for the user's email address.
+  const form = document.createElement("form");
+  form.setAttribute("action", "/forgot-username");
+  form.setAttribute("method", "post");
+  // Add a text field to the form for the user's email address.
+  const emailField = document.createElement("input");
+  emailField.setAttribute("type", "email");
+  emailField.setAttribute("name", "email");
+  form.appendChild(emailField);
+  // Add a submit button to the form.
+  const submitButton = document.createElement("input");
+  submitButton.setAttribute("type", "submit");
+  submitButton.setAttribute("value", "Submit");
+  form.appendChild(submitButton);
+  // Append the form to the body of the document.
+  document.body.appendChild(form);
+}
+
+
