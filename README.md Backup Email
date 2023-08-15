@@ -1,0 +1,9 @@
+# Site
+Lab Site Base
+This function will create a new XMLHttpRequest object and send a GET request to the specified URL. The response data will be saved to the specified drive.
+Here are some additional tips for backing up data on a website:
+* Use a secure connection when backing up data. This will help to protect the data from being intercepted by unauthorized users.
+* Use a reliable backup service. This will ensure that the data is backed up correctly and that it is available in the event of a disaster.
+* Test the backup regularly. This will help to ensure that the backup is working properly and that the data is accessible.
+By following these tips, you can help to protect your website data from loss or damage.
+(This is solely for the backup email function)
