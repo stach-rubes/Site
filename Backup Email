@@ -1,0 +1,17 @@
+function backupData(url, drive) {
+  // Create a new XMLHttpRequest object.
+  const xhr = new XMLHttpRequest();
+  // Set the request method to "GET".
+  xhr.open("GET", url);
+  // Set the request headers.
+  xhr.setRequestHeader("Content-Type", "application/json");
+  // Send the request.
+  xhr.send();
+  // Handle the response.
+  xhr.onload = function() {
+    // Get the response data.
+    const data = xhr.responseText;
+    // Save the data to the drive.
+    drive.writeFile(data);
+  };
+}
